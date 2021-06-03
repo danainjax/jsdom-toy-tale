@@ -40,7 +40,19 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
     .then(response => response.json())
-    .then(newToy => console.log(newToy))
+    .then(newToy => {
+      newToyHTML = `
+      <div class="card">
+      <h2>${newToy.name}</h2>
+      <img src=${newToy.image} class="toy-avatar" />
+      <p>${newToy.likes}</p>
+      <button class="like-btn">Like</button>
+    </div>
+
+      `
+      document.querySelector("#toy-collection").innerHTML += newToyHTML.join("")
+    })
+    console.log(newToy)
   })
 
   addBtn.addEventListener("click", () => {
