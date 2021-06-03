@@ -3,6 +3,7 @@ const toyFormContainer = document.querySelector(".container");
 let addToy = false;
 
 document.addEventListener("DOMContentLoaded", () => {
+  const toyCollection = document.querySelector("#toy-collection")
   console.log("%cThe dom is loaded.", "color :blue")
   fetch("http://localhost:3000/toys")
   .then(response => response.json())
@@ -14,11 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
       <h2>${object.name}</h2>
       <img src=${object.image} class="toy-avatar" />
       <p>${object.likes}</p>
-      <button class="like-btn">Like</button>
+      <button data id=${object.id} class="like-btn">Like</button>
     </div>
       `
     })
-    document.querySelector("#toy-collection").innerHTML += toysHTML.join("")
+    toyCollection.innerHTML += toysHTML.join("")
   })
 
   toyFormContainer.addEventListener("submit", function(event) {
@@ -46,14 +47,27 @@ document.addEventListener("DOMContentLoaded", () => {
       <h2>${newToy.name}</h2>
       <img src=${newToy.image} class="toy-avatar" />
       <p>${newToy.likes}</p>
-      <button class="like-btn">Like</button>
+      <button data id=${newToy.id} class="like-btn">Like</button>
     </div>
 
       `
-      document.querySelector("#toy-collection").innerHTML += newToyHTML.join("")
+      toyCollection.innerHTML += newToyHTML.join("")
     })
     console.log(newToy)
   })
+
+    toyCollection.addEventListener("click", (e) => {
+      
+      if (e.target.className === "like-btn") {
+        // /traverses the DOM
+        let currentLikes = parseInt(e.target.previousElementSibling.innerText);
+        console.log(currentLikes)
+        let newLikes = currentLikes + 1
+        e.target.previousElementSibling.innerText = newLikes 
+        
+
+      }
+    })
 
   addBtn.addEventListener("click", () => {
     console.log("%cYou clicked the button.", "color :red")
