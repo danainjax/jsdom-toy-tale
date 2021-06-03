@@ -1,5 +1,6 @@
 const addBtn = document.querySelector("#new-toy-btn");
 const toyFormContainer = document.querySelector(".container");
+const toyForm = document.querySelector(".add-toy-form");
 let addToy = false;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,12 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
     toyCollection.innerHTML += toysHTML.join("")
   })
 
-  toyFormContainer.addEventListener("submit", function(event) {
+  toyForm.addEventListener("submit", function(event) {
+    // debugger;
     event.preventDefault()
+    
     
     const toyName = event.target.name.value
     const toyImage = event.target.image.value
-    console.log(toyName, toyImage);
+    
     fetch("http://localhost:3000/toys", {
       method: "POST",
       headers: {
@@ -41,17 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
     .then(response => response.json())
-    .then(newToy => {
-      newToyHTML = `
-      <div class="card">
-      <h2>${newToy.name}</h2>
-      <img src=${newToy.image} class="toy-avatar" />
-      <p>${newToy.likes}</p>
-      <button data id=${newToy.id} class="like-btn">Like</button>
-    </div>
+    .then(newToy => {debugger;
+    //   newToyHTML = `
+    //   <div class="card">
+    //   <h2>${newToy.name}</h2>
+    //   <img src=${newToy.image} class="toy-avatar" />
+    //   <p>${newToy.likes}</p>
+    //   <button data id=${newToy.id} class="like-btn">Like</button>
+    // </div>
 
-      `
-      toyCollection.innerHTML += newToyHTML.join("")
+    //   `
+    //   toyCollection.innerHTML += newToyHTML.join("")
     })
     console.log(newToy)
   })
