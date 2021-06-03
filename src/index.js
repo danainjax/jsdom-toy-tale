@@ -60,14 +60,28 @@ document.addEventListener("DOMContentLoaded", () => {
       
       if (e.target.className === "like-btn") {
         // /traverses the DOM
-        let currentLikes = parseInt(e.target.previousElementSibling.innerText);
-        console.log(currentLikes)
+        let currentLikes = 
+        parseInt(e.target.previousElementSibling.innerText);
         let newLikes = currentLikes + 1
-        e.target.previousElementSibling.innerText = newLikes 
-        
+        e.target.previousElementSibling.innerText = newLikes + " likes"
 
+        fetch(`http://localhost:3000/toys/${e.target.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+          body: JSON.stringify({
+            likes: newLikes 
+        })
+        
+        })
       }
+    
     })
+    
+        
+  
 
   addBtn.addEventListener("click", () => {
     console.log("%cYou clicked the button.", "color :red")
@@ -81,4 +95,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-});
+})
