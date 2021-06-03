@@ -1,11 +1,12 @@
 const addBtn = document.querySelector("#new-toy-btn");
 const toyFormContainer = document.querySelector(".container");
 const toyForm = document.querySelector(".add-toy-form");
+const toyCollection = document.querySelector("#toy-collection")
 let addToy = false;
 
 document.addEventListener("DOMContentLoaded", () => {
-  const toyCollection = document.querySelector("#toy-collection")
-  console.log("%cThe dom is loaded.", "color :blue")
+  
+  
   fetch("http://localhost:3000/toys")
   .then(response => response.json())
   .then(toys => {
@@ -19,13 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
       <button data id=${object.id} class="like-btn">Like</button>
     </div>
       `
+
+      
     })
     toyCollection.innerHTML += toysHTML.join("")
   })
 
   toyForm.addEventListener("submit", function(event) {
     // debugger;
-    event.preventDefault()
+    event.preventDefault();
     
     
     const toyName = event.target.name.value
@@ -40,11 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
       body: JSON.stringify({
         name: toyName,
         image: toyImage,
-        likes: 99
+        likes: 0
       })
     })
     .then(response => response.json())
-    .then(newToy => {debugger;
+    .then(newToy => {
     //   newToyHTML = `
     //   <div class="card">
     //   <h2>${newToy.name}</h2>
@@ -60,13 +63,14 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
     toyCollection.addEventListener("click", (e) => {
+      e.preventDefault();
       
       if (e.target.className === "like-btn") {
         // /traverses the DOM
         let currentLikes = 
         parseInt(e.target.previousElementSibling.innerText);
         let newLikes = currentLikes + 1
-        e.target.previousElementSibling.innerText = newLikes + " likes"
+        e.target.previousElementSibling.innerText = newLikes 
 
         fetch(`http://localhost:3000/toys/${e.target.id}`, {
           method: "PATCH",
