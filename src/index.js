@@ -27,6 +27,7 @@ let addToy = false;
     toyForm.addEventListener("submit", function(event){
       
       event.preventDefault();
+      console.log('We got past the event prevent default line')
       const toyName = event.target.name.value
       const toyImage = event.target.image.value
 
