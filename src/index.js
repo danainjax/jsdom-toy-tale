@@ -2,7 +2,7 @@ const addBtn = document.querySelector("#new-toy-btn");
 const toyForm = document.querySelector(".container");
 const toyCollection = document.querySelector('#toy-collection')
 let addToy = false;
-
+document.querySelector("#form")
 // YOUR CODE HERE
   document.addEventListener("DOMContentLoaded", ()=>{
 
@@ -25,11 +25,11 @@ let addToy = false;
       toyCollection.innerHTML += toysHTML.join('')
     })
 
-    toyForm.addEventListener("submit", function(event){
+    toyForm.addEventListener("submit", event=> {
       
       event.preventDefault();
       console.log('We got past the event prevent default line')
-      // debugger;
+      
       const toyName = event.target.name.value
       const toyImage = event.target.image.value
 
