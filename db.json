@@ -47,6 +47,96 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": 11
+    },
+    {
+      "name": "Smith and Wesson",
+      "image": "Image url",
+      "likes": 0,
+      "id": 9
+    },
+    {
+      "name": "Smith and Wesson",
+      "image": "Image url",
+      "likes": 0,
+      "id": 10
+    },
+    {
+      "name": "Smith and Wesson",
+      "image": "Image url",
+      "likes": 0,
+      "id": 11
+    },
+    {
+      "name": "Smith and Wesson",
+      "image": "Image url",
+      "likes": 0,
+      "id": 12
+    },
+    {
+      "name": "Smith and Wesson",
+      "image": "Image url",
+      "likes": 0,
+      "id": 13
+    },
+    {
+      "name": "Smith and Wesson",
+      "image": "Image url",
+      "likes": 0,
+      "id": 14
+    },
+    {
+      "name": "Sally",
+      "image": "sally URL",
+      "likes": 0,
+      "id": 15
+    },
+    {
+      "name": "Sally",
+      "image": "sally URL",
+      "likes": 0,
+      "id": 16
+    },
+    {
+      "name": "Sally",
+      "image": "sally URL",
+      "likes": 0,
+      "id": 17
+    },
+    {
+      "name": "Sally",
+      "image": "sally URL",
+      "likes": 0,
+      "id": 18
+    },
+    {
+      "name": "Sally",
+      "image": "sally URL",
+      "likes": 0,
+      "id": 19
+    },
+    {
+      "name": "Sally",
+      "image": "sally URL",
+      "likes": 0,
+      "id": 20
+    },
+    {
+      "name": "Sally",
+      "image": "sally URL",
+      "likes": 0,
+      "id": 21
+    },
+    {
+      "name": "Sally",
+      "image": "sally URL",
+      "likes": 0,
+      "id": 22
+    },
+    {
+      "name": "Sally",
+      "image": "sally URL",
+      "likes": 0,
+      "id": 23
     }
   ]
 }

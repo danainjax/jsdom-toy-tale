@@ -68,7 +68,7 @@ let addToy = false;
         // /traverses the DOM
         let currentLikes = 
         parseInt(e.target.previousElementSibling.innerText)
-        let newLikes = currentLikes + 1
+        let newLikes = currentLikes + 1 + " Likes"
         e.target.previousElementSibling.innerText = newLikes 
         
 
